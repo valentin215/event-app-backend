@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # has_many :user_registration_forms
 
   validates :name, uniqueness: { case_sensitive: false }, presence: true
-  validates :password, presence: true
+  validates_presence_of :password
   validates_inclusion_of :admin, in: [true, false]
 
   scope :admin, -> { where(admin: true) }

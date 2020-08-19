@@ -1,0 +1,2 @@
+class EventRegistrationForm < ApplicationRecord
+end
