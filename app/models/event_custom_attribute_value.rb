@@ -1,0 +1,2 @@
+class EventCustomAttributeValue < ApplicationRecord
+end
