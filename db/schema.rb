@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 2020_08_19_131837) do
     t.boolean "for_event_registration", default: false, null: false
     t.boolean "required_for_signup", default: false, null: false
     t.boolean "required_for_profile", default: false, null: false
-    t.boolean "required_for_event", default: false, null: false
+    t.boolean "required_for_event_form", default: false, null: false
     t.string "attribute_type", null: false
-    t.bigint "event_id", null: false
+    t.bigint "event_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["event_id"], name: "index_custom_attributes_on_event_id"
