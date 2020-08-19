@@ -2,8 +2,9 @@
 
 # Simple User class
 class User < ApplicationRecord
-  # has_many :user_custom_attribute_values
-  # has_many :user_registration_forms
+  has_many :user_custom_attribute_values, dependent: :destroy
+  has_many :event_registration_forms
+  has_many :events, through: :event_registration_forms
 
   validates :name, uniqueness: { case_sensitive: false }, presence: true
   validates_presence_of :password

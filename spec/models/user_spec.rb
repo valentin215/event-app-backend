@@ -12,12 +12,9 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # context 'ActiveRecord Associations' do
-  #   it 'has many custom attribute values' do
-  #     expect(User.reflect_on_association(:user_custom_attribute_values).macro).to be(:has_many)
-  #   end
-  #   it 'has many event registration forms' do
-  #     expect(User.reflect_on_association(:event_registration_forms).macro).to be(:has_many)
-  #   end
-  # end
+  describe 'Active Record Associations' do
+    it { should have_many(:user_custom_attribute_values) }
+    it { should have_many(:event_registration_forms) }
+    it { should have_many(:events).through(:event_registration_forms) }
+  end
 end

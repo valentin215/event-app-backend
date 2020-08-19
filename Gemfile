@@ -24,6 +24,8 @@ group :development, :test do
   gem 'rspec-rails'
   # Styling conventions
   gem 'rubocop', require: false
+  # Testing gem to help on rspec
+  gem 'shoulda-matchers', '~> 4.0'
 end
 
 group :development do
