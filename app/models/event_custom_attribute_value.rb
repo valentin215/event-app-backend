@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# AttributeValues for an Event / EventRegistrationFrom
 class EventCustomAttributeValue < ApplicationRecord
   belongs_to :event
   belongs_to :custom_attribute

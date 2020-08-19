@@ -22,33 +22,33 @@ class CustomAttribute < ApplicationRecord
   end
 end
 
-event = Event.create(
-  name: 'bonjour'
-)
+# event = Event.create(
+#   name: 'bonjour'
+# )
 
-user = User.create(
-  name: 'ok',
-  password: 'oui',
-  admin: false
-)
+# user = User.create(
+#   name: 'ok',
+#   password: 'oui',
+#   admin: false
+# )
 
-custom_cool = CustomAttribute.create(
-  event_id: event.id,
-  name: 'test',
-  for_event_registration: true,
-  required_for_event_form: true, 
-  attribute_type: 'boolean'
-)
+# custom_cool = CustomAttribute.create(
+#   event_id: event.id,
+#   name: 'test',
+#   for_event_registration: true,
+#   required_for_event_form: true, 
+#   attribute_type: 'boolean'
+# )
 
-form = EventRegistrationForm.create(
-  event_id: event.id,
-  user_id: user.id
-)
+# form = EventRegistrationForm.create(
+#   event_id: event.id,
+#   user_id: user.id
+# )
 
 
-value = EventCustomAttributeValue.create(
-  event_id: event.id,
-  event_registration_form_id: form.id,
-  custom_attribute_id: custom_cool.id,
-  content: 'true'
-)
+# value = EventCustomAttributeValue.create(
+#   event_id: event.id,
+#   event_registration_form_id: form.id,
+#   custom_attribute_id: custom_cool.id,
+#   content: 'true'
+# )
