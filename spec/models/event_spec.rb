@@ -1,15 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Event, type: :model do
+  subject { described_class.create(name: 'Test') }
+
   describe 'Validations' do
     it { should validate_presence_of(:name) }
-  end
-
-  describe 'Validations of uniqueness' do
-    before do
-      subject { described_class.create(name: 'Test') }
-      it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
-    end
+    it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
   end
 
   describe 'Active Record Associations' do
