@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EventCustomAttributeValue, type: :model do
-  let(:user) { User.create(name: 'ok', password: 'test pw', admin: false) }
+  let(:user) { User.create(name: 'Test user', password: 'test pw', admin: false) }
   let(:event) { Event.create(name: 'test event') }
 
   let(:form) { EventRegistrationForm.create(event_id: event.id, user_id: user.id) }
