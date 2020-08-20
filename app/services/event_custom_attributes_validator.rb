@@ -20,8 +20,6 @@ class EventCustomAttributesValidator
 
   def validate_presence_of_attributes_id(required_ids)
     params_ids = @params.dig(:event_custom_attributes).map { |key, value| key.to_s.to_i }
-    puts params_ids
-    puts required_ids
     params_ids.intersection(required_ids) == required_ids
   end
 end

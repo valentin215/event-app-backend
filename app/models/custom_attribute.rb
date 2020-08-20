@@ -6,8 +6,8 @@
 class CustomAttribute < ApplicationRecord
   belongs_to :event, optional: true
 
-  has_many :user_custom_attribute_values
-  has_many :event_custom_attribute_values
+  has_many :user_custom_attribute_values, dependent: :nullify
+  has_many :event_custom_attribute_values, dependent: :nullify
 
   validates :name, presence: true, uniqueness: true, case_sensitive: false
   validates :for_user,
@@ -16,8 +16,8 @@ class CustomAttribute < ApplicationRecord
             :required_for_profile,
             :required_for_event_form, inclusion: { in: [true, false] }
   validates :attribute_type, presence: true, inclusion: { in: %w[string boolean] }
-
   validates :event_id, presence: true, if: :event_custom_attribute?
+
   validates :for_user,
             inclusion: { in: [false], message: 'Cannot be for user if the custom attribute is for an event' },
             if: :event_custom_attribute?
