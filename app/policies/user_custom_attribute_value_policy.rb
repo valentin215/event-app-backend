@@ -13,15 +13,11 @@ class UserCustomAttributeValuePolicy < ApplicationPolicy
     true
   end
 
-  def new?
-    true
-  end
-
   def show?
     true
   end
 
   def create?
-    user.present?
+    user.present? && !user.admin?
   end
 end

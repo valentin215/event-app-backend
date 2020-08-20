@@ -1,20 +1,31 @@
 require 'rails_helper'
 
-describe UserCustomAttributeValuePolicy do
-  subject { described_class.new(user, custom_attribute_value) }
+RSpec.describe UserCustomAttributeValuePolicy, type: :policy do
+  subject { described_class }
 
-  let(:custom_attribute_value) { UserCustomAttributeValue.new }
+  let(:user) { User.new(name: 'ok', password: '1234') }
+  let(:user_custom_attribute_value) { UserCustomAttributeValue.new(user_id: user.id) }
+  let(:admin) { User.new(name: 'okd', password: '123d4', admin: true) }
+  let(:user_scope) { Pundit.policy_scope!(user, UserCustomAttributeValue) }
+  let(:admin_scope) { Pundit.policy_scope!(admin, UserCustomAttributeValue) }
 
-  context 'being a non admin' do
-    let(:user) { User.create(admin: false) }
+  context 'scopes' do
+    it 'allows a limited subset' do
+      matching_user_scope = UserCustomAttributeValue.where(user_id: user.id)
+      matching_admin_scope = UserCustomAttributeValue.all
 
-    it { is_expected.to permit_action(%i[show create index]) }
-    it { is_expected.to forbid_actions(%i[update destroy]) }
+      expect(user_scope.to_a).to match_array(matching_user_scope)
+      expect(admin_scope.to_a).to match_array(matching_admin_scope)
+    end
   end
 
-  context 'being an admin' do
-    let(:user) { User.create(admin: true) }
+  permissions :index?, :show? do
+    it { should permit(user, user_custom_attribute_value) }
+    it { should permit(admin, user_custom_attribute_value) }
+  end
 
-    it { is_expected.to permit_actions(%i[index show]) }
+  permissions :create? do
+    it { should permit(user, user_custom_attribute_value) }
+    it { should_not permit(admin, user_custom_attribute_value) }
   end
 end

@@ -1,17 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe CustomAttribute, type: :model do
+  subject do
+    described_class.new(
+      name: 'test attribute',
+      for_event_registration: false,
+      for_user: true,
+      required_for_signup: true,
+      required_for_event_form: false,
+      attribute_type: 'boolean'
+    )
+  end
+
   describe 'Validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:attribute_type) }
     it { should validate_inclusion_of(:attribute_type).in_array(%w[string boolean]) }
-  end
-
-  describe 'Validations of uniqueness' do
-    before do
-      subject { described_class.create(name: 'Test') }
-      it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
-    end
+    it { should validate_uniqueness_of(:name).ignoring_case_sensitivity }
   end
 
   context 'Validations for attribute type' do

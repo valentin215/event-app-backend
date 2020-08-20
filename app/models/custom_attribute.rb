@@ -42,7 +42,7 @@ class CustomAttribute < ApplicationRecord
 end
 
 # event = Event.create(
-#   name: 'bonjdour'
+#   name: 'bonjdouddr'
 # )
 
 # user = User.create(
