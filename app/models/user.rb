@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :event_registration_forms
   has_many :events, through: :event_registration_forms
 
-  validates :name, uniqueness: { case_sensitive: false }, presence: true
+  validates :name, uniqueness: true, presence: true, case_sensitive: false
   validates_presence_of :password
   validates_inclusion_of :admin, in: [true, false]
 

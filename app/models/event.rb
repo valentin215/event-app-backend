@@ -6,5 +6,5 @@ class Event < ApplicationRecord
   has_many :users, through: :event_registration_forms
   has_many :custom_attributes, dependent: :destroy
 
-  validates_presence_of :name
+  validates :name, uniqueness: { case_sensitive: false }, presence: true
 end
