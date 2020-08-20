@@ -24,6 +24,8 @@ group :development, :test do
   gem 'rspec-rails'
   # Styling conventions
   gem 'rubocop', require: false
+  # Testing gem for callbacks
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
   # Testing gem to help on rspec
   gem 'shoulda-matchers', '~> 4.0'
 end

@@ -12,6 +12,11 @@ class EventCustomAttributeValue < ApplicationRecord
 
   private
 
+  # def raise_error
+  #   errors.add(:base, 'Content should be true or false')
+  #   raise ActiveRecord::RecordInvalid.new(self)
+  # end
+
   def attribute_type_is_boolean?
     unless required_attribute_is_boolean? && attribute_type_content_is_boolean?
       errors.add(:base, 'Content should be true or false')
