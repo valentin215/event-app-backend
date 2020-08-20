@@ -7,6 +7,14 @@ class UserCustomAttributesValidator
     @params = params
   end
 
+  def self.call_on_create(params)
+    new(params).on_create
+  end
+
+  def self.call_on_update(params)
+    new(params).on_update
+  end
+
   def on_create
     required_ids_on_create = CustomAttribute.required_for_signup.pluck(:id)
     validate_presence_of_attributes_id(required_ids_on_create)

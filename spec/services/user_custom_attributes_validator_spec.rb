@@ -10,7 +10,6 @@ RSpec.describe UserCustomAttributesValidator do
                   '2': { content: 'ok content' },
                   '24': { content: 'ok content' }
                 } }
-
     @validator = UserCustomAttributesValidator.new(params)
   end
 
@@ -20,7 +19,7 @@ RSpec.describe UserCustomAttributesValidator do
       expect(validation).to eq(true)
     end
 
-    it 'should return false when there is not matching ids' do
+    it 'should return false when there is no matching ids' do
       CustomAttribute.create(
         id: 2345,
         name: 'teddst',
@@ -34,7 +33,7 @@ RSpec.describe UserCustomAttributesValidator do
       expect(validation).to eq(false)
     end
 
-    it 'should return true when there is not matching ids' do
+    it 'should return true when there is matching ids' do
       CustomAttribute.create(
         id: 24,
         name: 'teddst',

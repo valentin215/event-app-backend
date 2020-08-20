@@ -28,7 +28,7 @@ class CustomAttribute < ApplicationRecord
 
   scope :required_for_signup, -> { where(required_for_signup: true) }
   scope :required_for_profile, -> { where(required_for_profile: true) }
-  scope :for_users, -> { where(for_user: true) }
+  scope :required_for_event_form, -> { where(required_for_event_form: true) }
 
   private
 
