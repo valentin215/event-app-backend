@@ -22,7 +22,7 @@ RSpec.describe UserCustomAttributesValidator do
     it 'should return false when there is no matching ids' do
       CustomAttribute.create(
         id: 2345,
-        name: 'teddst',
+        name: 'oui',
         for_event_registration: false,
         for_user: true,
         required_for_signup: true,
@@ -36,7 +36,7 @@ RSpec.describe UserCustomAttributesValidator do
     it 'should return true when there is matching ids' do
       CustomAttribute.create(
         id: 24,
-        name: 'teddst',
+        name: 'oui',
         for_event_registration: false,
         for_user: true,
         required_for_signup: true,
@@ -57,7 +57,7 @@ RSpec.describe UserCustomAttributesValidator do
     it 'should return false when there is not matching ids' do
       CustomAttribute.create(
         id: 232,
-        name: 'teddst',
+        name: 'tedffdst',
         for_event_registration: false,
         for_user: true,
         required_for_profile: true,
@@ -71,7 +71,7 @@ RSpec.describe UserCustomAttributesValidator do
     it 'should return true when there is matching ids' do
       CustomAttribute.create(
         id: 24,
-        name: 'teddst',
+        name: 'teddzzst',
         for_event_registration: false,
         for_user: true,
         required_for_profile: true,

@@ -4,9 +4,7 @@ class EventCustomAttributeValuePolicy < ApplicationPolicy
       if user.admin?
         scope.all
       else
-        scope.includes(:event_registration_form)
-             .where('event_registration_forms.user_id = ?', 'user.id')
-             .references(:event_registration_form)
+        scope.includes(:event_registration_form).where(event_registration_forms: { user_id: user.id })
       end
     end
   end
@@ -19,11 +17,11 @@ class EventCustomAttributeValuePolicy < ApplicationPolicy
     true
   end
 
-  def show
+  def show?
     true
   end
 
   def create?
-    user.present?
+    user.present? && !user.admin?
   end
 end

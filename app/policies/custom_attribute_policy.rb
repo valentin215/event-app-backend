@@ -1,4 +1,14 @@
 class CustomAttributePolicy < ApplicationPolicy
+  class Scope < Scope
+    def resolve
+      if user.admin?
+        scope.all
+      else
+        scope.none
+      end
+    end
+  end
+
   def index?
     user.admin?
   end
@@ -8,6 +18,10 @@ class CustomAttributePolicy < ApplicationPolicy
   end
 
   def show?
+    user.admin?
+  end
+
+  def edit?
     user.admin?
   end
 

@@ -28,7 +28,9 @@ class UserCustomAttributesValidator
   private
 
   def validate_presence_of_attributes_id(required_ids)
-    params_ids = @params.dig(:user_custom_attributes).map { |key, value| key.to_s.to_i }
+    params_ids = @params.dig(:user_custom_attributes).map { |key, _value| key.to_s.to_i }
+    pp params_ids
+    pp required_ids
     params_ids.intersection(required_ids) == required_ids
   end
 end
