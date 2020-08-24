@@ -1,10 +1,34 @@
 # README
 
-# DB - SCHEMA
+##  Getting Started
+
+Ruby version: 2.7.1
+Rails version: 6.0.3
+
+Depedencies: Docker
+
+Running tests:
+
+  ```ruby
+  docker-compose run -e "RAILS_ENV=test" web bundle exec rspec   
+  ```
+  
+## App
+
+This is a real simple rails app where I used --skip for almost everything.
+
+There is no controllers as asked, only models and two services to handle validations.
+
+Pundit has been added to handle authorizations.
+
+Everything has been tested with rspec.
+
+
+## H6 DB - schema
 
 https://github.com/valentin215/event-app-backend/issues/1#issue-684662698
 
-# VALIATIONS WITH SERVICES
+## Valiations with services
 
 When an Admin decide to create a CustomAttribute with required_on_signup / required_on_profile or required_on_event_form, validations are handled inside the controller with services as validators.
 
@@ -52,7 +76,16 @@ params = { name: 'test name',
                 } }
 ```
                 
+## Gems added
 
+'pundit'
+'rubocop'
+'rspec-rails'
+'pundit-matchers'
+'shoulda-callback-matchers'
+'shoulda-matchers'
 
+## Issues
 
-# 
+- I had a small issue with postgres default password in database.yml when I wanted to dockerize the small. The goal was to hide passwords and username inside a .env file. I ran into errors so I decided for the test to let it visible.
+
