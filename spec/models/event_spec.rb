@@ -9,8 +9,8 @@ RSpec.describe Event, type: :model do
   end
 
   describe 'Active Record Associations' do
-    it { should have_many(:custom_attributes) }
-    it { should have_many(:event_registration_forms) }
+    it { should have_many(:custom_attributes).dependent(:destroy) }
+    it { should have_many(:event_registration_forms).dependent(:destroy) }
     it { should have_many(:users).through(:event_registration_forms) }
   end
 end
