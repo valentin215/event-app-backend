@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Simple User class
+# Simple User class to help solving the test without devise.
 class User < ApplicationRecord
   has_many :user_custom_attribute_values, dependent: :destroy
   has_many :event_registration_forms

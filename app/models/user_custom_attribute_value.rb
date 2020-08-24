@@ -1,3 +1,8 @@
+# frozen_string_literal: true
+
+# Custom attribute value for User where content is the answer
+# Content could be a yes or no answer when the admin creates boolean attributes
+# A after save checks content and rollback if it's not yes or no for boolean attributes
 class UserCustomAttributeValue < ApplicationRecord
   belongs_to :user
   belongs_to :custom_attribute

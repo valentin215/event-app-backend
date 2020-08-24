@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
-# AttributeValues for an Event / EventRegistrationFrom
+# Custom attribute value for an event
+# Through this class, an admin can retrieve all values
+# An after save callback checks if the content is yes or no for custom attributes booleans
 class EventCustomAttributeValue < ApplicationRecord
   belongs_to :event
   belongs_to :custom_attribute

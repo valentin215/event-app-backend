@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # This service help us to validate the creation of a user or not
-# when an Admin set an attribute required on profile or on signup
+# when an Admin set an attribute required on profile (update) or on signup (create)
 class UserCustomAttributesValidator
   def initialize(params)
     @params = params
@@ -29,8 +29,6 @@ class UserCustomAttributesValidator
 
   def validate_presence_of_attributes_id(required_ids)
     params_ids = @params.dig(:user_custom_attributes).map { |key, _value| key.to_s.to_i }
-    pp params_ids
-    pp required_ids
     params_ids.intersection(required_ids) == required_ids
   end
 end
