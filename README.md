@@ -16,7 +16,7 @@ Running tests:
   
 ## App
 
-This is a real simple rails app where I used --skip for almost everything.
+ Simple rails app where I used --skip for almost everything.
 
 There is no controllers as asked, only models and two services to handle validations.
 
