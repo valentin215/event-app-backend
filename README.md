@@ -3,6 +3,7 @@
 ##  Getting Started
 
 Ruby version: 2.7.1
+
 Rails version: 6.0.3
 
 Depedencies: Docker
@@ -24,7 +25,7 @@ Pundit has been added to handle authorizations.
 Everything has been tested with rspec.
 
 
-## H6 DB - schema
+## DB - schema
 
 https://github.com/valentin215/event-app-backend/issues/1#issue-684662698
 
@@ -57,7 +58,7 @@ when creating an event registration and event_custom_attribute_values:
 EventCustomAttributesValidator.call(params).valid?
 ```
 
-Params needs this given hash structure:
+Params need this given hash structure:
 
 ```ruby
 params = { name: 'test name',
@@ -79,10 +80,15 @@ params = { name: 'test name',
 ## Gems added
 
 'pundit'
+
 'rubocop'
+
 'rspec-rails'
+
 'pundit-matchers'
+
 'shoulda-callback-matchers'
+
 'shoulda-matchers'
 
 ## Issues
