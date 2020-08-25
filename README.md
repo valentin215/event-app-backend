@@ -64,7 +64,7 @@ The event_id has to be present (when creating event related objects), the keys f
 ```ruby
 params = { name: 'test name',
            password: '1234567',
-           event_id: 1,
+           event_id: '1',
            event_custom_attributes:
             {
               '1': { content: 'some content' },
