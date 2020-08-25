@@ -58,23 +58,25 @@ when creating an event registration and event_custom_attribute_values:
 EventCustomAttributesValidator.call(params).valid?
 ```
 
-Params need this given hash structure:
+Params you pass need the given structure below.
+The event_id has to be present (when creating event related objects), the keys for the content values hashs are the ids of CustomAttributes set by the admin (ex: 1 2 3 4 5 6).
 
 ```ruby
 params = { name: 'test name',
-               password: '1234567',
-               event_custom_attributes:
-                {
-                  '1': { content: 'some content' },
-                  '2': { content: 'some content' },
-                  '3': { content: 'some content' }
-                },
-               user_custom_attributes:
-                {
-                  '4': { content: 'some content' },
-                  '5': { content: 'ok content' },
-                  '6': { content: 'ok content' }
-                } }
+           password: '1234567',
+           event_id: 1,
+           event_custom_attributes:
+            {
+              '1': { content: 'some content' },
+              '2': { content: 'some content' },
+              '3': { content: 'some content' }
+            },
+           user_custom_attributes:
+            {
+              '4': { content: 'some content' },
+              '5': { content: 'ok content' },
+              '6': { content: 'ok content' }
+            } }
 ```
                 
 ## Gems added
