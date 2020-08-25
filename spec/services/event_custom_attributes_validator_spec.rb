@@ -4,6 +4,7 @@ RSpec.describe EventCustomAttributesValidator do
   before(:each) do
     params = { name: 'test name',
                password: '1234567',
+               event_id: 1,
                event_custom_attributes:
                 {
                   '1': { content: 'some content' },
@@ -20,10 +21,10 @@ RSpec.describe EventCustomAttributesValidator do
     end
 
     it 'should return false when there is no matching ids' do
-      event = Event.create(name: 'test name')
+      Event.create(id: 1, name: 'test event')
       CustomAttribute.create(
         id: 34,
-        event_id: event.id,
+        event_id: 1,
         name: 'test',
         for_event_registration: true,
         for_user: false,
@@ -36,15 +37,15 @@ RSpec.describe EventCustomAttributesValidator do
     end
 
     it 'should return true when there is matching ids' do
-      event = Event.create(name: 'test name')
+      Event.create(id: 1, name: 'test event')
       CustomAttribute.create(
         id: 2345,
-        event_id: event.id,
+        event_id: 1,
         name: 'test',
         for_event_registration: true,
         for_user: false,
         required_for_signup: false,
-        required_for_event_form: false,
+        required_for_event_form: true,
         attribute_type: 'boolean'
       )
       validation = @validator.on_registration

@@ -12,7 +12,8 @@ class EventCustomAttributesValidator
   end
 
   def on_registration
-    required_ids_on_form_registration = CustomAttribute.required_for_event_form.pluck(:id)
+    event_id = @params.dig(:event_id)
+    required_ids_on_form_registration = CustomAttribute.required_for_event_form.where(event_id: event_id).pluck(:id)
     validate_presence_of_attributes_id(required_ids_on_form_registration)
   end
 
