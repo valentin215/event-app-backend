@@ -93,5 +93,5 @@ params = { name: 'test name',
 
 ## Issues
 
-- I had a small issue with postgres default password in database.yml when I wanted to dockerize the small. The goal was to hide password and username inside a .env file. I ran into errors so I decided for the test to let them visible.
+- I had a small issue with postgres default password in database.yml when I wanted to dockerize the app. The goal was to hide password and username inside a .env file. I ran into errors so I decided for the test to let them visible.
 
