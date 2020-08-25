@@ -37,7 +37,7 @@ Inside the controller when creating user, just pass the params as arguments:
 
 ```ruby
 def  create
-  if UserCustomAttributesValidator.call_on_create(params).valid?
+  if UserCustomAttributesValidator.call_on_create(params) == true
     create_user
     create_user_custom_attribute_values
   else
@@ -49,13 +49,13 @@ end
 when updating a user, use:
 
 ```ruby
-UserCustomAttributesValidator.call_on_update(params).valid?
+UserCustomAttributesValidator.call_on_update(params)
 ```
 
 when creating an event registration and event_custom_attribute_values:
 
 ```ruby
-EventCustomAttributesValidator.call(params).valid?
+EventCustomAttributesValidator.call(params)
 ```
 
 Params you pass need the given structure below.
