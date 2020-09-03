@@ -8,7 +8,7 @@ Rails version: 6.0.3
 
 Depedencies: Docker
 
-Running tests:
+Running tests (after docker build):
 
   ```ruby
   docker-compose run -e "RAILS_ENV=test" web bundle exec rspec   
