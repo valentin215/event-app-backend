@@ -59,7 +59,7 @@ EventCustomAttributesValidator.call(params)
 ```
 
 Params you pass need the given structure below.
-The event_id has to be present (when creating event related objects), the keys for the content values hashs are the ids of CustomAttributes set by the admin (ex: 1 2 3 4 5 6).
+The event_id has to be present (when creating event related objects), the keys for the content values hashs are the ids of CustomAttributes created by the admin (ex: 1 2 3 4 5 6).
 
 ```ruby
 params = { name: 'test name',
